@@ -5,4 +5,4 @@ BackOffice et FrontOffice : Bootstrap, HTML, CSS, JS, AJAX, TWIG.
 
 Nécessaire : Module Fullcalendar, Bundles: TwigBundle, DebugBundle, MakerBundle, DoctrineBundle, DoctrineMigration, Security, TwigExtraBundle, SwiftmailerBundle, VichUploaderBundle.
 
-Composant supplémentaire : symfony/form, symfony/notifier, symfony/validator, symfony/asset, doctrine/annotations, doctrine/orm
+Composants supplémentaires : symfony/form, symfony/notifier, symfony/validator, symfony/asset, doctrine/annotations, doctrine/orm
