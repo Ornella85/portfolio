@@ -1,0 +1,17 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        pictures_image:
+            uri_prefix: /pictures/picture
+            upload_destination: '%kernel.project_dir%/public/pictures/picture'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+
+        pdfs_pdf:
+            uri_prefix: /pdfs/pdf
+            upload_destination: '%kernel.project_dir%/public/pdfs/pdf'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+    #mappings:
+    #    products:
+    #        uri_prefix: /images/products
+    #        upload_destination: '%kernel.project_dir%/public/images/products'
