@@ -24,9 +24,9 @@ class ContactNotification {
 
     public function notify(Contact $contact)
     {
-        $message = ( new \Swift_Message('Portfolio Ornella : Nouveau contact') )
+        $message = ( new \Swift_Message('Portfolio : Nouveau contact') )
         ->setFrom($contact->getEmail())
-        ->setTo('info@ornellalallier.fr')
+        ->setTo('info@example.com')
         ->setReplyTo($contact->getEmail())
         ->setBody($this->renderer->render('emails/contact.html.twig',[
             'contact' => $contact
