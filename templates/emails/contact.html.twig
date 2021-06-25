@@ -1,0 +1,43 @@
+
+{% block title %}Contact via le portfolio{% endblock %}
+
+{% block body %}
+ 
+
+  <h3>Portfolio : un contact a laissé ses coordonnées</h3>
+
+    <table>
+    <thead>
+        <tr>
+            <th colspan="2">Information du Contact</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Nom </td>
+            <td>{{ contact.firstname }}</td>
+        </tr>
+        <tr>
+            <td>Prénom </td>
+            <td>{{ contact.lastname }}</td>
+        </tr>
+        <tr>
+            <td>Téléphone </td>
+            <td>{{ contact.phone }}</td>
+        </tr>
+        <tr>
+            <td>Email </td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        <tr>
+            <td>Titre de la demande </td>
+            <td>{{ contact.title }}</td>
+        </tr>
+        <tr>
+            <td>Le message </td>
+            <td>{{ contact.message }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

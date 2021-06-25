@@ -1,0 +1,37 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Todo List{% endblock %}
+
+{% block body %} {{ parent() }}
+
+<!-- ***************************** READ TODO LIST  ***************************** -->
+<!-- CARD BOOTSTRAP -->
+<div class="card-group read">
+        <!-- Todo List card -->
+        <div class="card">
+            <div class="card-header bg-transparent ">
+                <p class="couleur" style= "background-color: {{todoList.color}}" ></p>
+                <h5 class="card-title">{{todoList.name}}
+                <a class="icones" href="../edit/{{ todoList.id }}"><i class="far fa-edit" style= "color: {{todoList.color}}"></i> </a>
+                <a class="icones" href="../delete/{{ todoList.id }}"><i class="far fa-trash-alt " style= "color: {{todoList.color}}"></i></a>      
+                </h5>
+            </div>
+            
+            <div class="card-body">
+            <!-- FOR LOOP : retrieving the task list &  task title -->
+                {% for task in todoList.tasks %}
+                        <br>
+                        <label for=""> {{task.title}} </label>
+                        <a href="/admin/task/edit/{{task.id}}"><i class="far fa-edit text-dark"></i></a>
+                        <a href="/admin/task/delete/{{task.id}}"><i class="fas fa-times text-danger"></i></a>
+                {% endfor %}
+                        <br>
+                        <br> 
+                
+                <!-- Link towards CREATE a Todo List twig -->
+                <a href="/admin/task/{{todoList.id}}" class="couleur" style= "color: {{todoList.color}}">Créer une tâche</i></a> 
+             </div>
+         </div>
+</div>
+
+{% endblock %}

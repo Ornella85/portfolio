@@ -1,0 +1,165 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}BackOffice{% endblock %}
+
+{% block body %} {{ parent() }}
+
+<div class="flex-items allContacts box">
+    
+    <a class="button" href="#popup1" id ="loadstudent">Derniers Contacts</a>
+</div>
+
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h1>Mes Derniers Contacts</h1>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <table class = "table">  
+            <tbody id = "student"></tbody>  
+            </table> 
+        </div>      
+    </div>
+</div>
+
+<div class="flex-items allTodolists">
+    <a class="button" href="#popup2">Toutes Mes Todolists</a>
+</div>
+
+<div id="popup2" class="overlay">
+    <div class="popup">
+
+        <h1>Toutes Mes Todolists</h1>
+        <a class="close" href="#">&times;</a>
+
+        <div class="content">
+            <a href="{{ path('todolist_create') }}" class="add-todo"><i class="fas fa-plus"></i>Ajouter</a>
+            <a href="{{ path('admin') }}" class="return-todo">Retour</a>
+
+            <article class="todo-list">
+                {% for list in todoLists %}
+                    <div class="card todo">
+                        <div class="card-body">
+                            <p class="couleur" style= "background-color: {{list.color}}" ></p>
+                            <h5 class="card-title" >{{ list.name }}</h5>
+
+                            <a href="admin/todolist/read/{{ list.id }}"><i class="fas fa-eye " style= "color: {{list.color}}"></i></a>
+                            <a href="admin/todolist/edit/{{ list.id }}"><i class="far fa-edit text-dark"></i></a>
+                            <a href="admin/todolist/delete/{{ list.id }}"><i class="far fa-trash-alt text-danger"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+</div>
+
+
+<div class="flex-items rdv">
+    {# <a class="button" href="#popup3"> Mes Rdv</a> #}
+</div>
+
+<div id="popup3" class="overlay">
+    <div class="popup">
+
+        <h1>Mes Rdv</h1>
+        <a class="close" href="#">&times;</a>
+
+        <div class="content">
+            <a href="{{ path('admin') }}" class="return-todo">Retour</a>
+        </div>
+    </div>
+</div>
+
+<div class="flex-items allExp">
+    <a class="button" href="#popup4">Modifier Expériences</a>
+</div>
+
+<div id="popup4" class="overlay">
+    <div class="popup">
+        <h1>Modifier Expériences</h1>
+        <a class="close" href="#">&times;</a>
+
+        <div class="content">
+            <a href="{{ path('experiences_create') }}" class="add-exp"><i class="fas fa-plus"></i>Ajouter</a>
+            <a href="{{ path('admin') }}" class="return-todo">Retour</a>
+
+            <article class="exp">
+                {% for experience in experiences %}
+                    <div class="card exp text-center">
+                        <div class="card-body">
+                        <h5 class="card-title" >{{ experience.titleexperiences }}</h5>
+
+                        <div class="skills1">{{ experience.contentexperiences }}</div>
+                            <a href="admin/experiences/edit/{{ experience.idexperiences }}"><i class="far fa-edit text-dark"></i></a>
+                            <a href="admin/experiences/delete/{{ experience.idexperiences }}"><i class="far fa-trash-alt text-danger"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="flex-items allMaquettes">
+ <a class="button" href="#popup5">Modifier Maquettes</a>
+</div>
+
+<div id="popup5" class="overlay">
+    <div class="popup">
+        <h1>Modifier Maquettes</h1>
+        <a class="close" href="#">&times;</a>
+
+        <div class="content">
+            <a href="{{ path('pictures_create') }}" class="add-maquettes"><i class="fas fa-plus"></i>Ajouter</a>
+            <a href="{{ path('admin') }}" class="return-todo">Retour</a>
+
+            <article class="realisation">
+                {% for picture in pictures %}
+                    <div class="card real text-center">
+                        <div class="card-body">
+                            <h5 class="card-title" >{{ picture.titlepictures }}</h5>
+                            {% if picture.picturesname %}
+                            <img src="/pictures/picture/{{ picture.picturesname }}" alt="image" style="width: 10%; heigth: auto;">
+                            <a href="admin/pictures/delete/{{ picture.idpictures }}"><i class="far fa-trash-alt text-danger"></i></a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+</div>
+
+<div class="flex-items allSkills">
+    <a class="button" href="#popup6">Modifier Compétences</a>
+</div>
+
+<div id="popup6" class="overlay">
+    <div class="popup">
+        <h1>Modifier Compétences</h1>
+        <a class="close" href="#">&times;</a>
+
+        <div class="content">
+            <a href="{{ path('skills_create') }}" class="add-skills"><i class="fas fa-plus"></i>Ajouter</a>
+            <a href="{{ path('admin') }}" class="return-todo">Retour</a>
+            
+            <article class="skills">
+                {% for skill in skills %}
+                <div class="card skill text-center">
+                    <div class="card-body">
+                        <h5 class="card-title" >{{ skill.titleskills }}</h5>
+                        <div class="skills1">{{ skill.contentskills }}</div>
+                        
+                        <a href="admin/skills/edit/{{ skill.idskills }}"><i class="far fa-edit text-dark"></i></a>
+                        <a href="admin/skills/delete/{{ skill.idskills }}"><i class="far fa-trash-alt text-danger"></i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+</div>
+
+</div>  
+</main>
+{% endblock %}

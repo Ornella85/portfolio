@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Réalisations{% endblock %}
+
+{% block body %}
+  <article class="lien-pdf">
+    <div class="card text-center">
+      <div class="card-header">
+        <h2>Pdf Mon CV en Ligne</h2>
+        <a href="{{ path('pdf_create') }}">Ajouter</a>
+      </div>
+
+      {% for pdf in pdf %}
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title" >{{ pdf.titlepdf }}</h5>
+          {% if pdf.pdfName %}
+          <img src="pdf/{{ pdf.pdfName }}" alt="image" style="width: 10%; heigth: auto;">
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </article>
+{% endblock %}

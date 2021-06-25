@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio Ornella Développeuse Jr{% endblock %}
+
+{% block body %} {{ parent() }}
+
+<!-- ***************************** page with PARALLAX  ***************************** -->
+<!-- FLEX CONTAINER WITH ITEMS -->
+<div class="flex-container">
+
+    <section class="flex-items">
+        <div class="scroll" id="scroll_0">
+            <!-- site title with glassmorphism effect blocks -->
+            <div class="glassMorph-Title"> 
+                <p>Développeuse Web Jr</p>
+            </div>
+
+            <!-- block with white glassmorphism effect -->
+            <div class="content">
+                <h1 class="typedtext"></h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESENTATION CONTENTS use glassmorphism effect -->
+    <section class="flex-items">
+        <!-- personal background image for parallax effect -->
+        <div class="parallax img-1"></div>
+
+        <!-- scroll for parallax effect -->
+        <div class="scroll" id="scroll_1">
+
+            <div class="glassMorph-presentation"> 
+                <p>Je m'appelle <strong>Ornella Lallier</strong>. Actuellement en formation pour devenir Développeuse Intégratrice Web, j'aimerais me spécialiser dans le langage <strong>PHP</strong> en utilisant des CMS comme DRUPAL.</p> 
+                <br>
+                <p>Apprendre de nouveaux langages back me plairait beaucoup, je suis de nature très curieuse. Parfaitement à l'aise avec le <strong>HTML et CSS</strong>, j'ai également une certaine sensibilité pour la gestion de projet. </p>
+            </div>
+
+            <div class="glassMorph-presentation2"> 
+                <p>Pour concrétiser mon projet et devenir Développeuse Web spécialisée <strong>PHP SYMFONY</strong>, je suis à la recherche d'un poste en cdi ou d'une formation certifiante afin d'approfondir mes connaissances.</p>
+            </div>
+
+            <!-- block with orange glassmorphism effect -->
+            <div class="content2">
+            <!-- Animation text using js and css -->
+                <ul class="text-animation hidden">
+                    <li>P</li>
+                    <li>r</li>
+                    <li>é</li>
+                    <li>s</li>
+                    <li>e</li>
+                    <li>n</li>
+                    <li>t</li>
+                    <li>a</li>
+                    <li>t</li>
+                    <li>i</li>
+                    <li>o</li>
+                    <li>n</li>
+                </ul>
+            </div>
+            <div class="parallax img-2"></div>
+        </div> 
+    </section>
+
+    <!-- REALISATION CONTENTS using ROW & COL -->
+    <section class="flex-items">
+        <div class="scroll" id="scroll_2">
+            <!-- Title with css animation -->
+            <h2 class="realisation tracking-in-contract">Réalisations</h2>
+
+            <!-- loop which manages the recovery of models in database -->
+            <div class="row row-cols-2">
+                {% for picture in pictures %}
+                    <div class="col maquettes">
+                        {# <h5>{{ picture.titlepictures }}</h5> #}
+                        {% if picture.picturesname %}
+                            <img src="/pictures/picture/{{ picture.picturesname }}" alt="maquette projet site web">
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- block with orange glassmorphism effect -->
+            <div class="content3"></div>
+
+            <!-- block with white glassmorphism effect -->
+            <div class="content4"></div>
+            <div class="content5"></div>
+
+            <div class="parallax img-3"></div>
+        </div>
+    </section>
+
+    <!-- SKILLS & EXPERIENCE CONTENTS using bootstrap card -->
+    <section class="flex-items">
+        <div class="scroll" id="scroll_3">
+            <!-- Skills bootstrap card -->
+            <div class="row">
+                <!-- loop which manages the recovery of skills in database -->
+                <div class="col">
+                    <div class="skills"> 
+                        <h2 class="skillstitle">Compétences</h2>
+                        {% for skill in skills %}
+                            <div class="card-body">
+                            <h6 class="card-title">{{ skill.titleskills }}</h6>
+                            <p class="card-text">{{ skill.contentskills }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Experiences bootstrap card -->
+                <!-- loop which manages the recovery of models in database -->
+                <div class="col">
+                    <div class="exp"> 
+                        <h2 class="exptitle">Expériences</h2>
+                        {% for experience in experiences %}
+                        <div class="card-body">
+                            <h6 class="card-title">{{ experience.titleexperiences }}</h6>
+                            <p class="card-text">{{ experience.contentexperiences }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- RESUME LINKS -->   
+                <div class="cv">
+                    <a class="" href="/pdfs/pdf/cv_dev_junior_ornella_lallier.pdf" download=" cv Ornella Lallier Dev en PDF">CV PDF</a>
+                    <a href="https://www.linkedin.com/in/ornella-lallier" target = "_blank">LINKEDIN</a> 
+                    <a href="https://www.whire.me/@ornellalallier" target = "_blank">WHIRE.ME</a> 
+                </div>
+                <!-- allows to stop the float left -->
+                <div class="clear"></div>
+                
+            </div>
+
+            <!-- block with orange glassmorphism effect -->
+            <div class="content6"></div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT CONTENT using symfony form & flash message -->
+    <section class="flex-items">
+        <div class="scroll" id="scroll_4">
+            <h2 class="contactTitle tracking-in-expand-fwd">Contact</h2>
+            <div class="contact"> 
+                {{ form_start(form) }}  
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.phone) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.title) }}
+                {{ form_row(form.message) }}
+                <button class="btn" type="submit">Valider</button> 
+                {% for message in app.flashes('success') %}
+                <div class='alert alert-success'>{{ message }}</div>  
+                {% endfor %}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+    
+</div>
+ <!-- close div FLEX CONTAINER -->
+
+<!-- Go to Top Button -->
+<div class='gotop'>
+    <a href="#top"><i class='fa fa-chevron-up'></i></a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p><a href="{{ path('app_login') }}">©</a>Copyright 2021 par Ornella Lallier Tous droits réservés.</p>
+</footer>
+
+{% endblock %}
+
+

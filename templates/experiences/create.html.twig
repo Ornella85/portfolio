@@ -1,0 +1,14 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Compétences : ajouter{% endblock %}
+
+{% block body %} {{ parent() }}
+<div> 
+     {{ form_start(form) }}  
+        {{ form_row(form.title_experiences) }}
+        {{ form_row(form.content_experiences) }}
+        <button type="submit" class="btn btn-primary">Valider</button>
+        <a href="{{ path('admin') }}"><i class="fas fa-hand-point-left"></i>Retour</a>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
