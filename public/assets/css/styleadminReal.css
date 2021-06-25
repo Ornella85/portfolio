@@ -1,0 +1,31 @@
+/*************************************************************
+  STYLE MAQUETTES
+**************************************************************/
+a.add-maquettes, .fa-plus{
+    margin-left: 7.3vh;
+}
+a.add-maquettes{
+    color: black;
+}
+.fa-plus{
+    color:#C69200;
+}
+.realisation{
+    width: 90%;
+    margin: 5vh;
+}
+/*************************************************************
+  STYLE BUTTON
+**************************************************************/
+.btn{
+    background-color: #007E3A;
+    color: white;
+    margin: 15px;
+    padding: 7px;
+    border: none;
+  }
+  
+  .btn:hover{
+    color: #C69200;
+    background-color: white;
+  }

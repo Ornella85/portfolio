@@ -1,0 +1,107 @@
+/*************************************************************
+PAGE
+**************************************************************/
+html {
+overflow: hidden;
+height: 100%;
+margin: auto;
+}
+body {
+font-family: 'Open Sans', sans-serif;
+height: 100%;
+}
+
+/*************************************************************
+NAV
+**************************************************************/
+.bg-light{
+background-color: #473e26 !important;
+} 
+a.nav-link{
+color: rgba(255, 255, 255, 0.938)!important;
+font-size: 18px;
+}
+a.nav-link:hover, .nav-link.active  {
+color: #C69200 !important;
+}
+a.navbar-brand {
+font-size: 45px;
+font-weight: 500;
+font-family: 'Old Standard TT', serif;
+padding-top: 2vh;
+padding-right: 6vh;
+padding-left: 6vh;
+}
+li.nav-item.backoff{
+margin: -12px;
+margin-left: 1vh;
+}
+.backoff a{
+text-decoration: none;
+color: #C69200 ;
+font-size: 13px;
+margin-left: 1vh;
+}
+a.disabled{
+font-size: 13px;
+margin-top: 0.5vh;
+}
+
+/*************************************************************
+HEADINGS
+**************************************************************/
+.container{
+padding-top: 15vh;
+padding-left: 15vh;
+}
+form, h1.connexion, h1.register{
+width: 70%;
+}
+h1.connexion, h1.register{
+color:#473e26;
+background-color: #c69100e1;
+box-shadow: 0 0 10px #333;
+padding: 1rem;
+text-align: center;
+}
+label{
+font-family: 'Old Standard TT', serif;
+font-size: 18px;
+padding: 3px;
+}
+
+@media (min-width: 320px) {
+  .container{
+    padding-top: 20vh;
+    padding-left: 5vh;
+    }
+    form, h1.connexion, h1.register{
+    width: 93%;
+    }
+}
+@media (min-width: 1400px){
+  .container{
+    padding-top: 15vh;
+    padding-left: 15vh;
+    }
+    form, h1.connexion, h1.register{
+    width: 70%;
+    }
+}
+
+/*************************************************************
+BUTTONS
+**************************************************************/
+.btn{
+font-family: 'Old Standard TT', serif;
+background-color: #007E3A;
+color: white;
+margin: 5px;
+padding: 8px;
+border: none;
+}
+.btn:hover{
+color: #C69200;
+background-color: white;
+}
+
